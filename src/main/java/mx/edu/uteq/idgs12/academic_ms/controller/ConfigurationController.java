@@ -46,4 +46,10 @@ public class ConfigurationController {
     public ResponseEntity<Configuration> create(@RequestBody ConfigurationDTO dto) {
         return ResponseEntity.ok(configurationService.save(dto));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Configuration> update(@PathVariable Integer id, @RequestBody ConfigurationDTO dto) {
+        dto.setIdConfiguration(id);
+        return ResponseEntity.ok(configurationService.save(dto));
+    }
 }
